@@ -6,10 +6,11 @@ package M1CT;
  * Setup
  * // DONE: Confirm project builds and runs (BagDemo main prints a message).
  * // DONE: Initialize Git Local Repository
- * // TODO: Initial Commit
- * // TODO: Link to GitHub and do Initial push
+ * // DONE: Initial Commit
+ * // DONE: Link to GitHub and do Initial push
  *
  * Bag ADT Implementation
+ * // DONE: Make sure I have any needed imports
  * // TODO: Create Bag<T> class.
  * // TODO: Add internal storage (ArrayList).
  * // TODO: Implement add(T item).
@@ -31,14 +32,48 @@ package M1CT;
  *
  * Final Checks
  * // TODO: Add short method comments explaining purpose and behavior.
- * // TODO: Write pseudocode that matches the final code.
+ * // TODO: review pseudocode to confirm it matches the final code.
  */
+import java.util.ArrayList;
+import java.util.List;
 
 public class BagDemo {
 
 	public static void main(String[] args) {
-		System.out.println("Bag demo project setup");
+		System.out.println("BagDS Project Working");
 
 	}
 
+}
+
+class Bag<T> {
+	private final List<T> items;
+	
+	public Bag() {
+		items = new ArrayList<>();
+	}
+	
+	public void add(T item) {
+		// TODO: implement (add)
+	}
+	
+	public void remove(T item) {
+		// TODO: implement this (remove)
+	}
+	
+	public boolean contains(T item) {
+		// TODO: implement this (contains)
+		return false;
+	}
+	
+	public int count(T item) {
+		// TODO: implement this (count)
+		return 0;
+	}
+	
+	// Overrides Object.toString() to display the bag contents
+	@Override
+	public String toString() {
+		return items.toString();
+	}
 }
