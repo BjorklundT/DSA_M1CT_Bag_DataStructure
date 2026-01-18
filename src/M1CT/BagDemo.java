@@ -11,9 +11,9 @@ package M1CT;
  *
  * Bag ADT Implementation
  * // DONE: Make sure I have any needed imports
- * // TODO: Create Bag<T> class.
+ * // DONE: Create Bag<T> class Skeleton.
  * // TODO: Add internal storage (ArrayList).
- * // TODO: Implement add(T item).
+ * // DONE: Implement add(T item).
  * // TODO: Implement remove(T item) to remove one occurrence if it exists.
  * // TODO: Implement contains(T item).
  * // TODO: Implement count(T item).
@@ -41,6 +41,17 @@ public class BagDemo {
 
 	public static void main(String[] args) {
 		System.out.println("BagDS Project Working");
+		
+		Bag<String> bag = new Bag<>();
+		
+		bag.add("Eric"); 
+		bag.add("Nate");
+		bag.add("Eric"); // duplicate testing
+		bag.add("Timothy");
+		bag.add("Tyler");
+		bag.add("Timothy"); // duplicate testing
+		
+		System.out.println("Bag's current contents: " + bag);
 
 	}
 
@@ -49,12 +60,13 @@ public class BagDemo {
 class Bag<T> {
 	private final List<T> items;
 	
+	// Adds one item to the bag
 	public Bag() {
 		items = new ArrayList<>();
 	}
 	
 	public void add(T item) {
-		// TODO: implement (add)
+		items.add(item);
 	}
 	
 	public void remove(T item) {
