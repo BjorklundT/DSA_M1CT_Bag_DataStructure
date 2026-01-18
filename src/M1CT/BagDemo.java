@@ -12,23 +12,23 @@ package M1CT;
  * Bag ADT Implementation
  * // DONE: Make sure I have any needed imports
  * // DONE: Create Bag<T> class Skeleton.
- * // TODO: Add internal storage (ArrayList).
+ * // DONE: Add internal storage (ArrayList).
  * // DONE: Implement add(T item).
- * // TODO: Implement remove(T item) to remove one occurrence if it exists.
- * // TODO: Implement contains(T item).
- * // TODO: Implement count(T item).
- * // TODO: Add a toString() method to print bag contents.
+ * // DONE: Implement remove(T item) to remove one occurrence if it exists.
+ * // DONE: Implement contains(T item).
+ * // DONE: Implement count(T item).
+ * // DONE: Add a toString() method to print bag contents.
  *
  * Demo Requirements
- * // TODO: Create a Bag instance in main.
- * // TODO: Add several elements including duplicates.
- * // TODO: Print bag contents.
- * // TODO: Test contains() for a few elements.
- * // TODO: Test count() for a few elements.
- * // TODO: Remove an element from the bag.
- * // TODO: Print bag contents again.
- * // TODO: Test contains() for the removed element.
- * // TODO: Test count() for the removed element.
+ * // DONE: Create a Bag instance in main.
+ * // DONE: Add several names including duplicates.
+ * // DONE: Print bag contents.
+ * // DONE: Test contains() for a few names.
+ * // DONE: Test count() for a few names.
+ * // DONE: Remove an name from the bag.
+ * // DONE: Print bag contents again.
+ * // DONE: Test contains() for the removed name.
+ * // DONE: Test count() for the removed name.
  *
  * Final Checks
  * // TODO: Add short method comments explaining purpose and behavior.
@@ -39,9 +39,7 @@ import java.util.List;
 
 public class BagDemo {
 
-	public static void main(String[] args) {
-		System.out.println("BagDS Project Working");
-		
+	public static void main(String[] args) {	
 		Bag<String> bag = new Bag<>();
 		
 		bag.add("Eric"); 
@@ -51,7 +49,33 @@ public class BagDemo {
 		bag.add("Tyler");
 		bag.add("Timothy"); // duplicate testing
 		
+		System.out.println("BEFORE Removal:");
 		System.out.println("Bag's current contents: " + bag);
+		
+		System.out.println("\nContains Test:\n");
+		
+		System.out.println("Contains Eric? " + bag.contains("Eric"));
+		System.out.println("Contains Sina? " + bag.contains("Sina"));
+		
+		System.out.println("\nCount Test:\n");
+		
+		System.out.println("Count of Eric: " + bag.count("Eric"));
+		System.out.println("Count of Nate: " + bag.count("Nate"));
+		System.out.println("Count of Timothy: " + bag.count("Timothy"));
+		System.out.println("Count of Tyler: " + bag.count("Tyler"));
+		
+		System.out.println("\nAFTER Removal:\n");
+		
+		System.out.println("Removing one occurrence of Eric and Timothy");
+		bag.remove("Eric");
+		bag.remove("Timothy");
+
+		System.out.println("\nResults of Removal:");
+		System.out.println("Bag contents after removal: " + bag);
+		System.out.println("Contains Eric? " + bag.contains("Eric"));
+		System.out.println("Count of Eric: " + bag.count("Eric"));
+		System.out.println("Contains Timothy? " + bag.contains("Timothy"));
+		System.out.println("Count of Timothy: " + bag.count("Timothy"));
 
 	}
 
@@ -60,27 +84,42 @@ public class BagDemo {
 class Bag<T> {
 	private final List<T> items;
 	
-	// Adds one item to the bag
 	public Bag() {
 		items = new ArrayList<>();
 	}
 	
+	// Adds one item to the bag
 	public void add(T item) {
 		items.add(item);
 	}
 	
+	// Removes one occurrence of the item from the bag, if it exists
 	public void remove(T item) {
-		// TODO: implement this (remove)
+	    int index = items.indexOf(item);
+
+	    if (index >= 0) {
+	        items.remove(index);
+	    }
 	}
 	
+	// Returns true if the item exists in the bag
 	public boolean contains(T item) {
-		// TODO: implement this (contains)
-		return false;
+		return items.contains(item);
 	}
 	
+	// Returns the number of occurrences of the item in the bag
 	public int count(T item) {
-		// TODO: implement this (count)
-		return 0;
+	    int total = 0;
+
+	    for (T currentItem : items) {
+	        if (currentItem == null && item == null) {
+	            total++;
+	        } else if (currentItem != null && currentItem.equals(item)) {
+	            total++;
+	        }
+	    }
+
+	    return total;
 	}
 	
 	// Overrides Object.toString() to display the bag contents
