@@ -13,10 +13,10 @@ package M1CT;
  * // DONE: Make sure I have any needed imports
  * // DONE: Create Bag<T> class Skeleton.
  * // DONE: Add internal storage (ArrayList).
- * // DONE: Implement add(T item).
- * // DONE: Implement remove(T item) to remove one occurrence if it exists.
- * // DONE: Implement contains(T item).
- * // DONE: Implement count(T item).
+ * // DONE: Implement add
+ * // DONE: Implement remove to remove one occurrence if it exists.
+ * // DONE: Implement contains.
+ * // DONE: Implement count.
  * // DONE: Add a toString() method to print bag contents.
  *
  * Demo Requirements
@@ -29,10 +29,8 @@ package M1CT;
  * // DONE: Print bag contents again.
  * // DONE: Test contains() for the removed name.
  * // DONE: Test count() for the removed name.
- *
- * Final Checks
- * // TODO: Add short method comments explaining purpose and behavior.
- * // TODO: review pseudocode to confirm it matches the final code.
+ * // DONE: Final Commit
+ * // DONE: Push GitHub
  */
 import java.util.ArrayList;
 import java.util.List;
@@ -88,12 +86,12 @@ class Bag<T> {
 		items = new ArrayList<>();
 	}
 	
-	// Adds one item to the bag
+	/** Adds an item to the bag. Duplicates are allowed. */
 	public void add(T item) {
 		items.add(item);
 	}
 	
-	// Removes one occurrence of the item from the bag, if it exists
+	/** Removes one occurrence of the item from the bag, if it exists. */
 	public void remove(T item) {
 	    int index = items.indexOf(item);
 
@@ -102,12 +100,12 @@ class Bag<T> {
 	    }
 	}
 	
-	// Returns true if the item exists in the bag
+	/** Returns true if the item exists in the bag, otherwise false. */
 	public boolean contains(T item) {
 		return items.contains(item);
 	}
 	
-	// Returns the number of occurrences of the item in the bag
+	/** Returns the number of times the item appears in the bag. */
 	public int count(T item) {
 	    int total = 0;
 
@@ -122,7 +120,7 @@ class Bag<T> {
 	    return total;
 	}
 	
-	// Overrides Object.toString() to display the bag contents
+	/** Returns a string representation of the bag contents. */
 	@Override
 	public String toString() {
 		return items.toString();
